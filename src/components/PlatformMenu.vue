@@ -1,17 +1,5 @@
 <template>
-  <div class="gap-3 xl:flex hidden">
-    <div v-for="(platform, index) in platforms" :key="index">
-      <PlatformItem
-        :logo="Logos[platform.key]"
-        :name="platform.name"
-        :color="Colors[platform.key]"
-        :activate="platformNow === platform.key"
-        @click="onSelect(platform.key)"
-      ></PlatformItem>
-    </div>
-  </div>
-
-  <div class="gap-3 xl:hidden flex">
+  <div class="gap-3 flex">
     <n-popover trigger="click" :to="false" :show-arrow="false">
       <template #trigger>
         <PlatformItem
@@ -44,10 +32,6 @@
 import { storeToRefs } from 'pinia'
 import PlatformItem from './PlatformItem.vue'
 import { useTimelineStore } from '@/stores/timeline'
-import TencentLogo from '@/assets/logos/tencent.png'
-import BilibiliLogo from '@/assets/logos/bilibili.png'
-import MikananiLogo from '@/assets/logos/mikanani.png'
-import Tl5dmLogo from '@/assets/logos/tl5dm.png'
 import { watchEffect } from 'vue'
 import { usePlatform } from '@/hooks/usePlatform'
 
