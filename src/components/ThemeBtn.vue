@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" :class="[themeClass('bg-[#EDF1F2]', 'bg-#212126')]" @click="toggleTheme()">
+    <button class="btn" :class="[themeClass('bg-[#EDF1F2]', 'bg-#2f2f36')]" @click="toggleTheme()">
         <div v-html="SunIcon" class="icon sun" v-if="theme === 'light'"></div>
         <div v-html="MoonIcon" class="icon moon" v-else></div>
     </button>
