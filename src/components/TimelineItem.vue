@@ -4,7 +4,7 @@
       :class="{ [themeClass('bg-white', 'bg-#212126')]: activate }">
       {{ prefix }}
     </div>
-    <div class="px1 transition-all" :style="contentStyle">{{ content }}</div>
+    <div class="px1 transition-all h5 leading-5" :style="contentStyle">{{ content }}</div>
   </div>
 </template>
 
