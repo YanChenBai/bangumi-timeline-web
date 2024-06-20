@@ -1,37 +1,22 @@
 <template>
   <div class="gap-5 xl:flex hidden">
     <div v-for="(day, index) in Days" :key="index">
-      <TimelineItem
-        :activate="index === selectDay"
-        :prefix="Prefixs[index]"
-        :color="DayColors[index]"
-        :content="day"
-        @click="onSelect(index)"
-      ></TimelineItem>
+      <TimelineItem :activate="index === selectDay" :prefix="Prefixs[index]" :color="DayColors[index]" :content="day"
+        @click="onSelect(index)"></TimelineItem>
     </div>
   </div>
 
   <div class="gap-5 xl:hidden flex">
     <n-popover trigger="click" :to="false">
       <template #trigger>
-        <TimelineItem
-          :activate="true"
-          :prefix="Prefixs[selectDay]"
-          :color="DayColors[selectDay]"
-          :content="Days[selectDay]"
-        ></TimelineItem>
+        <TimelineItem :activate="true" :prefix="Prefixs[selectDay]" :color="DayColors[selectDay]"
+          :content="Days[selectDay]"></TimelineItem>
       </template>
 
       <div class="flex flex-col">
         <div v-for="(day, index) in Days" :key="index">
-          <TimelineItem
-            class="w-fit"
-            :activate="index === selectDay"
-            :prefix="Prefixs[index]"
-            :color="DayColors[index]"
-            :content="day"
-            @click="onSelect(index)"
-          ></TimelineItem>
+          <TimelineItem class="w-full" :activate="index === selectDay" :prefix="Prefixs[index]" :color="DayColors[index]"
+            :content="day" @click="onSelect(index)"></TimelineItem>
         </div>
       </div>
     </n-popover>

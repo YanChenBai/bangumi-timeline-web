@@ -10,6 +10,7 @@ declare module 'vue' {
     BangumiCard: typeof import('./src/components/BangumiCard.vue')['default']
     DayCard: typeof import('./src/components/DayCard.vue')['default']
     NPopover: typeof import('naive-ui')['NPopover']
+    NSkeleton: typeof import('naive-ui')['NSkeleton']
     PlatformItem: typeof import('./src/components/PlatformItem.vue')['default']
     PlatformMenu: typeof import('./src/components/PlatformMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

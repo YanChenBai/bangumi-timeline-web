@@ -2,17 +2,9 @@
   <div class="mb-[50px]">
     <div class="mb-[10px]" :id="`week-${day}`">
       <div class="w-full rounded-full flex justify-center p1.5 box-border relative">
-        <TimelineItem
-          class="relative z-2"
-          :activate="true"
-          :prefix="Prefixs[day]"
-          :color="DayColors[day]"
-          :content="Days[day]"
-        ></TimelineItem>
-        <div
-          class="absolute w-full h2px top-[calc(50%-1px)]"
-          :style="{ background: DayColors[day] }"
-        ></div>
+        <TimelineItem class="relative z-2" :activate="true" :prefix="Prefixs[day]" :color="DayColors[day]"
+          :content="Days[day]"></TimelineItem>
+        <div class="absolute w-full h2px top-[calc(50%-1px)]" :style="{ background: DayColors[day] }"></div>
       </div>
     </div>
 

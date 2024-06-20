@@ -1,10 +1,6 @@
 <template>
   <div class="item transition-all" :style="ItemStyle">
-    <div
-      class="px1.5 rounded-full transition-all"
-      :style="{ color }"
-      :class="{ 'bg-white': activate }"
-    >
+    <div class="px1.5 rounded-full transition-all" :style="{ color }" :class="{ 'bg-white': activate }">
       {{ prefix }}
     </div>
     <div class="px1 transition-all" :style="contentStyle">{{ content }}</div>
@@ -25,25 +21,24 @@ const props = defineProps<{
 const ItemStyle = computed(() => {
   return props.activate
     ? {
-        backgroundColor: props.color
-      }
+      backgroundColor: props.color
+    }
     : {}
 })
 
 const contentStyle = computed(() => {
   return props.activate
     ? {
-        color: '#fff'
-      }
+      color: '#fff'
+    }
     : {
-        color: props.color
-      }
+      color: props.color
+    }
 })
 </script>
 
 <style scoped>
 .item {
-  --uno: flex gap-0.5 p1.5 rounded-full select-none cursor-pointer items-center justify-center
-    text-[14px];
+  --uno: flex gap-0.5 p1.5 box-border rounded-full select-none cursor-pointer items-center justify-between text-[14px];
 }
 </style>
