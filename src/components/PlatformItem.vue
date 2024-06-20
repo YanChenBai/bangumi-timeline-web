@@ -1,10 +1,10 @@
 <template>
   <div class="platform-menu-item"
     :style="{ color: activate ? '#fff' : color, background: activate ? color : 'transparent' }">
-    <div class="h-4 flex p1 rounded-full" :class="[themeClass('bg-white', 'bg-#18181C')]">
+    <div class="h-4 flex p1 rounded-full" :class="[themeClass('bg-white', 'bg-#212126')]">
       <img :src="logo" alt="logo" class="h-full" />
     </div>
-    <div class="flex font-800" :class="[themeClass('text-#fff', activate ? 'text-#222' : 'text-white/60')]">{{ name }}
+    <div class="flex font-800" :class="[themeClass('text-#fff', activate ? 'text-#212126' : 'text-white/80')]">{{ name }}
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="item transition-all" :style="ItemStyle">
     <div class="px1.5 rounded-full transition-all" :style="{ color }"
-      :class="{ [themeClass('bg-white', 'bg-#18181C')]: activate }">
+      :class="{ [themeClass('bg-white', 'bg-#212126')]: activate }">
       {{ prefix }}
     </div>
     <div class="px1 transition-all" :style="contentStyle">{{ content }}</div>
@@ -33,7 +33,7 @@ const ItemStyle = computed(() => {
 const contentStyle = computed(() => {
   return props.activate
     ? {
-      color: themeClass('#fff', '#222')
+      color: themeClass('#fff', '#212126')
     }
     : {
       color: props.color
