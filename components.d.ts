@@ -15,6 +15,7 @@ declare module 'vue' {
     PlatformMenu: typeof import('./src/components/PlatformMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemeBtn: typeof import('./src/components/ThemeBtn.vue')['default']
     TimelineContent: typeof import('./src/components/TimelineContent.vue')['default']
     TimelineItem: typeof import('./src/components/TimelineItem.vue')['default']
     TimelineMenu: typeof import('./src/components/TimelineMenu.vue')['default']

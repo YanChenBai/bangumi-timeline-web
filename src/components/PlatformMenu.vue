@@ -7,7 +7,7 @@
   </div>
 
   <div class="gap-3 xl:hidden flex">
-    <n-popover trigger="click" :to="false">
+    <n-popover trigger="click" :to="false" :show-arrow="false">
       <template #trigger>
         <PlatformItem v-if="platformNow" :logo="Logos[platformNow]" :name="findNmae()" :color="Colors[platformNow]"
           :activate="true"></PlatformItem>
@@ -17,7 +17,8 @@
       <div class="flex flex-col">
         <div v-for="(platform, index) in platforms" :key="index">
           <PlatformItem :logo="Logos[platform.key]" :name="platform.name" :color="Colors[platform.key]"
-            :activate="platformNow === platform.key" @click="onSelect(platform.key)"></PlatformItem>
+            :activate="platformNow === platform.key" @click="onSelect(platform.key)">
+          </PlatformItem>
         </div>
       </div>
     </n-popover>

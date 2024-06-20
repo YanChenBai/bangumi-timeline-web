@@ -1,9 +1,13 @@
 <template>
   <div class="pt-[10px] w-full">
     <div
-      class="w-full p2 sticky box-border top-[10px] z-20 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-full flex items-center justify-between">
+      class="w-full p2 sticky box-border top-[10px] z-20 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-full flex items-center justify-between"
+      :class="[themeClass('bg-white/80', 'bg-#111/80 ')]">
       <TimelineMenu></TimelineMenu>
-      <PlatformMenu></PlatformMenu>
+      <div class="flex items-center gap-2">
+        <PlatformMenu></PlatformMenu>
+        <ThemeBtn></ThemeBtn>
+      </div>
     </div>
 
     <div>
@@ -12,8 +16,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { TimelineMenu, PlatformMenu, TimelineContent } from '@/components'
+import { TimelineMenu, PlatformMenu, TimelineContent, ThemeBtn } from '@/components'
+import { useTheme } from '@/hooks/useTheme';
+
 defineOptions({
   name: 'HomeView'
 })
+
+const { themeClass } = useTheme()
 </script>

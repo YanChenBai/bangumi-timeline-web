@@ -7,7 +7,7 @@
   </div>
 
   <div class="gap-5 xl:hidden flex">
-    <n-popover trigger="click" :to="false">
+    <n-popover trigger="click" :to="false" :show-arrow="false">
       <template #trigger>
         <TimelineItem :activate="true" :prefix="Prefixs[selectDay]" :color="DayColors[selectDay]"
           :content="Days[selectDay]"></TimelineItem>
