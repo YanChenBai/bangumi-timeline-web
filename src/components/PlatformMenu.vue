@@ -6,7 +6,7 @@
           v-if="platformNow"
           :logo="Logos[platformNow]"
           :name="findNmae()"
-          :color="Colors[platformNow]"
+          :color="PlatformColors[platformNow]"
           :activate="true"
         ></PlatformItem>
         <div v-else></div>
@@ -17,7 +17,7 @@
           <PlatformItem
             :logo="Logos[platform.key]"
             :name="platform.name"
-            :color="Colors[platform.key]"
+            :color="PlatformColors[platform.key]"
             :activate="platformNow === platform.key"
             @click="onSelect(platform.key)"
           >
@@ -34,6 +34,7 @@ import PlatformItem from './PlatformItem.vue'
 import { useTimelineStore } from '@/stores/timeline'
 import { watchEffect } from 'vue'
 import { usePlatform } from '@/hooks/usePlatform'
+import { PlatformColors } from '@/shareds/configs'
 
 defineOptions({ name: 'PlatformMenu' })
 
@@ -62,13 +63,6 @@ const Logos = Object.entries(
     },
     {} as Record<string, string>
   )
-
-const Colors: Record<string, string> = {
-  tencent: '#0098FF',
-  bilibili: '#00A2D8',
-  mikanani: '#FAAA3B',
-  tl5dm: '#FF5050'
-}
 
 const { platforms, selectPlatform } = storeToRefs(useTimelineStore())
 const platformNow = usePlatform()
