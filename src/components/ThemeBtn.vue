@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" @click="toggleTheme()">
+    <button class="btn" :class="[themeClass('bg-[#EDF1F2]', 'bg-#212126')]" @click="toggleTheme()">
         <div v-html="SunIcon" class="icon sun" v-if="theme === 'light'"></div>
         <div v-html="MoonIcon" class="icon moon" v-else></div>
     </button>
@@ -11,16 +11,16 @@ import MoonIcon from "@/assets/icons/moon.svg?raw";
 import { useTheme } from '@/hooks/useTheme'
 defineOptions({ name: 'ThemeBtn' })
 
-const { theme, toggleTheme } = useTheme()
+const { theme, toggleTheme, themeClass } = useTheme()
 </script>
 
 <style scoped>
 .btn {
-    @apply flex h-fit p-0 border-0 bg-transparent cursor-pointer items-center
+    @apply flex h-full p1 border-0 cursor-pointer items-center rounded-full
 }
 
 .icon {
-    @apply text-[26px] flex;
+    @apply text-[24px] flex;
 }
 
 .sun {

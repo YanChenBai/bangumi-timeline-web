@@ -43,6 +43,6 @@ const contentStyle = computed(() => {
 
 <style scoped>
 .item {
-  @apply flex gap-0.5 p1.5 box-border rounded-full select-none cursor-pointer items-center justify-between text-[14px];
+  @apply flex gap-0.5 p1 box-border rounded-full select-none cursor-pointer items-center justify-between text-[14px];
 }
 </style>
