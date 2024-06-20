@@ -1,23 +1,38 @@
 <template>
   <div class="gap-3 xl:flex hidden">
     <div v-for="(platform, index) in platforms" :key="index">
-      <PlatformItem :logo="Logos[platform.key]" :name="platform.name" :color="Colors[platform.key]"
-        :activate="platformNow === platform.key" @click="onSelect(platform.key)"></PlatformItem>
+      <PlatformItem
+        :logo="Logos[platform.key]"
+        :name="platform.name"
+        :color="Colors[platform.key]"
+        :activate="platformNow === platform.key"
+        @click="onSelect(platform.key)"
+      ></PlatformItem>
     </div>
   </div>
 
   <div class="gap-3 xl:hidden flex">
     <n-popover trigger="click" :to="false" :show-arrow="false">
       <template #trigger>
-        <PlatformItem v-if="platformNow" :logo="Logos[platformNow]" :name="findNmae()" :color="Colors[platformNow]"
-          :activate="true"></PlatformItem>
+        <PlatformItem
+          v-if="platformNow"
+          :logo="Logos[platformNow]"
+          :name="findNmae()"
+          :color="Colors[platformNow]"
+          :activate="true"
+        ></PlatformItem>
         <div v-else></div>
       </template>
 
       <div class="flex flex-col">
         <div v-for="(platform, index) in platforms" :key="index">
-          <PlatformItem :logo="Logos[platform.key]" :name="platform.name" :color="Colors[platform.key]"
-            :activate="platformNow === platform.key" @click="onSelect(platform.key)">
+          <PlatformItem
+            :logo="Logos[platform.key]"
+            :name="platform.name"
+            :color="Colors[platform.key]"
+            :activate="platformNow === platform.key"
+            @click="onSelect(platform.key)"
+          >
           </PlatformItem>
         </div>
       </div>
@@ -42,12 +57,27 @@ const emits = defineEmits<{
   (e: 'select', key: string): void
 }>()
 
-const Logos: Record<string, string> = {
-  tencent: TencentLogo,
-  bilibili: BilibiliLogo,
-  mikanani: MikananiLogo,
-  tl5dm: Tl5dmLogo
-}
+const regex = /^\/src\/assets\/logos\/([^/]+)\.png$/
+const Logos = Object.entries(
+  import.meta.glob<true, string, { default: string }>('@/assets/logos/*.png', {
+    eager: true
+  })
+)
+  .map(([key, { default: path }]) => {
+    const match = key.match(regex)
+    if (!match) throw new Error('Invalid key: ' + key)
+    return {
+      key: match[1],
+      path
+    }
+  })
+  .reduce(
+    (acc, cur) => {
+      acc[cur.key] = cur.path
+      return acc
+    },
+    {} as Record<string, string>
+  )
 
 const Colors: Record<string, string> = {
   tencent: '#0098FF',
