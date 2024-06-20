@@ -31,7 +31,7 @@ export const useTimelineStore = defineStore(
   },
   {
     persist: {
-      paths: ['selectPlatform']
+      paths: ['selectPlatform', 'data']
     }
   }
 )
