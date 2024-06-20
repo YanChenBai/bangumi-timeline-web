@@ -26,6 +26,7 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()]
     }),
     VitePWA({
+      includeAssets: ['favicon.ico'],
       registerType: 'autoUpdate',
       manifest: {
         name: 'Timeline',
@@ -34,12 +35,12 @@ export default defineConfig({
         theme_color: '#fff',
         icons: [
           {
-            src: '/src/assets/logo_192.png',
+            src: '/logo_192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/src/assets/logo_512.png',
+            src: '/logo_512.png',
             sizes: '512x512',
             type: 'image/png'
           }

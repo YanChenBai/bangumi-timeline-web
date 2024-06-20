@@ -8,6 +8,14 @@ import { MotionPlugin } from '@vueuse/motion'
 
 import App from './App.vue'
 import router from './router'
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW({
+  // 每小时检查一次
+  onRegistered: (r) => r && setInterval(async () => await r.update(), 3600000),
+  // 注册失败则报错到 console
+  onRegisterError: (error) => console.error(error)
+})
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
