@@ -9,7 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     BangumiCard: typeof import('./src/components/BangumiCard.vue')['default']
     DayCard: typeof import('./src/components/DayCard.vue')['default']
-    NModalProvider: typeof import('naive-ui')['NModalProvider']
     NPopover: typeof import('naive-ui')['NPopover']
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     PlatformItem: typeof import('./src/components/PlatformItem.vue')['default']
