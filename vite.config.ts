@@ -56,7 +56,7 @@ export default defineConfig({
             options: {
               cacheName: 'timeline-images',
               expiration: {
-                maxEntries: 200,
+                maxEntries: 1000,
                 maxAgeSeconds: 30 * 24 * 60 * 60 // 30 days
               },
               cacheableResponse: {

@@ -4,7 +4,7 @@
       <div class="cover">
         <n-skeleton v-show="!show" class="size-full rounded-md" />
         <img alt="cover" class="transition-all-500" :class="[show ? 'opacity-100' : 'opacity-0']"
-          :src="`${baseUrl}/img/${data.cover}`" loading="lazy" ref="imgRef" />
+          :src="`${baseUrl}/img/${data.cover}`" loading="lazy" ref="imgRef" placeholders="" />
         <div class="ep" :class="[themeClass('text-white', 'text-white/70')]">{{ data.episode }}</div>
       </div>
       <div class="pl1 pt1 text-[14px]">

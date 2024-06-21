@@ -12,7 +12,11 @@ import { registerSW } from 'virtual:pwa-register'
 
 registerSW({
   // 每小时检查一次
-  onRegistered: (r) => r && setInterval(async () => await r.update(), 3600000),
+  onRegistered: (event) => {
+    if (event) {
+      setInterval(async () => await event.update(), 3600000)
+    }
+  },
   // 注册失败则报错到 console
   onRegisterError: (error) => console.error(error)
 })

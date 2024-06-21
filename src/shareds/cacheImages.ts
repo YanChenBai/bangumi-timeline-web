@@ -34,5 +34,7 @@ export async function cacheImages(data: GetTimelineResp) {
   console.log('Not Cached Images Count:', `${notCachedImages.size}/${images.length}`)
 
   const cache = await caches.open('timeline-images')
-  await cache.addAll(notCachedImages)
+  for (const img of notCachedImages) {
+    await cache.add(img)
+  }
 }
