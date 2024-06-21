@@ -39,7 +39,7 @@ export const useTimelineStore = defineStore(
 
       data.value = res
 
-      cacheImages(res)
+      return cacheImages(res)
     })
 
     return { data, platforms, selectDay, selectPlatform }
