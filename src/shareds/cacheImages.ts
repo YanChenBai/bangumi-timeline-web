@@ -25,7 +25,8 @@ export async function cacheImages(data: GetTimelineResp) {
   const notCachedImages: string[] = []
 
   for (const img of images) {
-    if (!isCached('timeline-images', img)) {
+    const _isCached = await isCached('timeline-images', img)
+    if (!_isCached) {
       notCachedImages.push(img)
     }
   }
