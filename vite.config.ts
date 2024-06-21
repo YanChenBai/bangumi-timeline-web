@@ -51,7 +51,7 @@ export default defineConfig({
         runtimeCaching: [
           {
             // 匹配动态图片的正则表达式
-            urlPattern: /^https:\/\/tl\.api\.bycrx\.ltd\/img\?img=(.+)$/,
+            urlPattern: /^https:\/\/tl\.api\.bycrx\.ltd\/img\/.*\.webp$/,
             handler: 'CacheFirst',
             options: {
               cacheName: 'timeline-images',

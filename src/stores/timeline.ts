@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import type { GetTimelineResp } from '@/types'
 import Apis from '@/apis'
 import { SHA256 } from 'crypto-js'
+import { cacheImages } from '@/shareds/cacheImages'
 export function getDay() {
   const date = new Date()
   const nowDay = date.getDay()
@@ -35,7 +36,10 @@ export const useTimelineStore = defineStore(
           })
         )
       }
+
       data.value = res
+
+      cacheImages(res)
     })
 
     return { data, platforms, selectDay, selectPlatform }
