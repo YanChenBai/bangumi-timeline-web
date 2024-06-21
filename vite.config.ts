@@ -74,6 +74,18 @@ export default defineConfig({
     }
   },
   build: {
-    assetsInlineLimit: 0
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('naive-ui')) {
+              return 'nui'
+            }
+            return 'vendor'
+          }
+        }
+      }
+    }
   }
 })
