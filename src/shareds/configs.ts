@@ -17,5 +17,6 @@ export const PlatformColors: Record<string, string> = {
   mikanani: '#FAAA3B',
   tl5dm: '#FF5050',
   bangumitv: '#F29BA3',
-  yucwiki: '#CCA4A2'
+  yucwiki: '#CCA4A2',
+  acgsecrets: '#F8C3CD'
 }
