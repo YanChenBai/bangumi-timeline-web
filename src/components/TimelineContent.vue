@@ -1,7 +1,12 @@
 <template>
   <div class="flex flex-col gap-20px pt-3 pb-[100px]">
     <TransitionGroup @after-enter="onAfterEnter">
-      <DayCard :data="item" :day="index" v-for="(item, index) in showData" :key="`${platformNow}-${index}`"></DayCard>
+      <DayCard
+        :data="item"
+        :day="index"
+        v-for="(item, index) in showData"
+        :key="`${platformNow}-${index}`"
+      ></DayCard>
     </TransitionGroup>
   </div>
 </template>
@@ -10,7 +15,7 @@
 import { usePlatform } from '@/hooks/usePlatform'
 import { useTimelineStore } from '@/stores/timeline'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onMounted, watch } from 'vue'
+import { computed, nextTick, onMounted } from 'vue'
 import DayCard from './DayCard.vue'
 import { scrollToElement } from '@/shareds/scrollToElement'
 
@@ -28,6 +33,8 @@ const showData = computed(() => {
 function onAfterEnter() {
   nextTick(() => scrollToElement(`week-${selectDay.value}`, -60, false))
 }
+
+onMounted(() => onAfterEnter())
 </script>
 
 <style scoped>

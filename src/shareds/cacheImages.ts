@@ -12,8 +12,8 @@ async function isCached(cacheName: string, url: string) {
   }
 }
 
-const getImgUrl = (img: string) => `${baseUrl}/${img}`
-
+const getImgUrl = (img: string) => `${baseUrl}/img/${img}`
+const CACHE_NAME = 'timeline-images'
 export async function cacheImages(data: GetTimelineResp) {
   const images = data
     .map((item) =>
@@ -25,7 +25,7 @@ export async function cacheImages(data: GetTimelineResp) {
   const notCachedImages = new Set<string>()
 
   for (const img of images) {
-    const _isCached = await isCached('timeline-images', img)
+    const _isCached = await isCached(CACHE_NAME, img)
     if (!_isCached) {
       notCachedImages.add(img)
     }
@@ -33,8 +33,6 @@ export async function cacheImages(data: GetTimelineResp) {
 
   console.log('Not Cached Images Count:', `${notCachedImages.size}/${images.length}`)
 
-  const cache = await caches.open('timeline-images')
-  for (const img of notCachedImages) {
-    await cache.add(img)
-  }
+  const cache = await caches.open(CACHE_NAME)
+  await cache.addAll(notCachedImages)
 }
