@@ -2,15 +2,25 @@
   <div class="gap-3 flex">
     <n-popover trigger="click" :to="false" :show-arrow="false" placement="bottom-end">
       <template #trigger>
-        <PlatformItem v-if="platformNow" :logo="Logos[platformNow]" :name="findNmae()"
-          :color="PlatformColors[platformNow]" :activate="true"></PlatformItem>
+        <PlatformItem
+          v-if="platformNow"
+          :logo="Logos[platformNow]"
+          :name="findNmae()"
+          :color="PlatformColors[platformNow]"
+          :activate="true"
+        ></PlatformItem>
         <div v-else></div>
       </template>
 
       <div class="flex flex-col">
         <div v-for="(platform, index) in platforms" :key="index">
-          <PlatformItem :logo="Logos[platform.key]" :name="platform.name" :color="PlatformColors[platform.key]"
-            :activate="platformNow === platform.key" @click="onSelect(platform.key)">
+          <PlatformItem
+            :logo="Logos[platform.key]"
+            :name="platform.name"
+            :color="PlatformColors[platform.key]"
+            :activate="platformNow === platform.key"
+            @click="onSelect(platform.key)"
+          >
           </PlatformItem>
         </div>
       </div>

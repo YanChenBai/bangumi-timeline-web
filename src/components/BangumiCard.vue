@@ -3,17 +3,31 @@
     <div class="bangumi-card" :class="[themeClass('bg-white', 'bg-[#212126]')]">
       <div class="cover">
         <n-skeleton v-show="!show" class="size-full rounded-md" />
-        <img alt="cover" class="transition-all-500" :class="[show ? 'opacity-100' : 'opacity-0']"
-          :src="`${baseUrl}/img/${data.cover}`" loading="lazy" ref="imgRef" placeholders="" />
-        <div class="ep" :class="[themeClass('text-white', 'text-white/70')]">{{ data.episode }}</div>
+        <img
+          alt="cover"
+          class="transition-all-500"
+          :class="[show ? 'opacity-100' : 'opacity-0']"
+          :src="`${baseUrl}/img/${data.cover}`"
+          loading="lazy"
+          ref="imgRef"
+          placeholders=""
+        />
+        <div class="ep" :class="[themeClass('text-white', 'text-white/70')]">
+          {{ data.episode }}
+        </div>
       </div>
       <div class="pl1 pt1 text-[14px]">
-        <div class="text-ellipsis overflow-hidden text-nowrap font-600"
-          :class="[themeClass('text-black', 'text-white/70')]">
+        <div
+          class="text-ellipsis overflow-hidden text-nowrap font-600"
+          :class="[themeClass('text-black', 'text-white/70')]"
+        >
           {{ data.name }}
         </div>
-        <div class="text-ellipsis overflow-hidden text-nowrap text-[12px]"
-          :class="themeClass('text-[rgb(60,60,60)]', 'text-[rgb(120,120,120)] ')" :title="data.updateTime">
+        <div
+          class="text-ellipsis overflow-hidden text-nowrap text-[12px]"
+          :class="themeClass('text-[rgb(60,60,60)]', 'text-[rgb(120,120,120)] ')"
+          :title="data.updateTime"
+        >
           {{ data.updateTime }}
         </div>
       </div>
@@ -24,8 +38,8 @@
 <script setup lang="ts">
 import type { Bangumi } from '@/types'
 import { baseUrl } from '@/shareds/env'
-import { onMounted, ref } from 'vue';
-import { useTheme } from '@/hooks/useTheme';
+import { onMounted, ref } from 'vue'
+import { useTheme } from '@/hooks/useTheme'
 
 defineOptions({ name: 'BangumiCard' })
 
@@ -40,7 +54,7 @@ const imgRef = ref<HTMLImageElement>()
 onMounted(() => {
   const el = imgRef.value
   if (el) {
-    el.onload = () => show.value = true
+    el.onload = () => (show.value = true)
   }
 })
 </script>

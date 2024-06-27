@@ -17,7 +17,7 @@ import { useTimelineStore } from '@/stores/timeline'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onMounted } from 'vue'
 import DayCard from './DayCard.vue'
-import { scrollToElement } from '@/shareds/scrollToElement'
+import { goDay } from '@/shareds/goDay'
 
 defineOptions({ name: 'TimelineContent' })
 
@@ -31,7 +31,7 @@ const showData = computed(() => {
 })
 
 function onAfterEnter() {
-  nextTick(() => scrollToElement(`week-${selectDay.value}`, -60, false))
+  nextTick(() => goDay(selectDay.value, false))
 }
 
 onMounted(() => onAfterEnter())

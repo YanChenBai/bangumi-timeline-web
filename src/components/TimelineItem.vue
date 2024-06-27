@@ -1,7 +1,10 @@
 <template>
   <div class="item transition-all" :style="ItemStyle">
-    <div class="px1.5 rounded-full transition-all" :style="{ color }"
-      :class="{ [themeClass('bg-white', 'bg-#212126')]: activate }">
+    <div
+      class="px1.5 rounded-full transition-all"
+      :style="{ color }"
+      :class="{ [themeClass('bg-white', 'bg-#212126')]: activate }"
+    >
       {{ prefix }}
     </div>
     <div class="px1 transition-all h5 leading-5" :style="contentStyle">{{ content }}</div>
@@ -9,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme'
 import { computed } from 'vue'
 
 defineOptions({ name: 'TimelineItem' })
@@ -25,19 +28,19 @@ const { themeClass } = useTheme()
 const ItemStyle = computed(() => {
   return props.activate
     ? {
-      backgroundColor: props.color
-    }
+        backgroundColor: props.color
+      }
     : {}
 })
 
 const contentStyle = computed(() => {
   return props.activate
     ? {
-      color: themeClass('#fff', '#212126')
-    }
+        color: themeClass('#fff', '#212126')
+      }
     : {
-      color: props.color
-    }
+        color: props.color
+      }
 })
 </script>
 

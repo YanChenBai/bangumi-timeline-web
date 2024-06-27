@@ -22,3 +22,14 @@ export const PlatformColors: Record<string, string> = {
   acgsecrets: '#F8C3CD',
   anilist: '#3577FF'
 }
+
+export const QuickKeys:Record<string, number> = {
+  "1": 0,
+  "2": 1,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 7,
+}

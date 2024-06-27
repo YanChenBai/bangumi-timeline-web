@@ -28,7 +28,7 @@ import type { Bangumi } from '@/types'
 import BangumiCard from './BangumiCard.vue'
 import TimelineItem from './TimelineItem.vue'
 import { DayColors, Days, Prefixs } from '@/shareds/configs'
-import { scrollToElement } from '@/shareds/scrollToElement'
+import { goDay } from '@/shareds/goDay'
 
 defineOptions({ name: 'DayCard' })
 const props = defineProps<{
@@ -37,7 +37,7 @@ const props = defineProps<{
 }>()
 
 function onClick() {
-  scrollToElement(`week-${props.day}`, -60)
+  goDay(props.day)
 }
 </script>
 
