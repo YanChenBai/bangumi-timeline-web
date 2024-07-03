@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">bangumi-timeline-web</string>
+    <string name="title_activity_main">bangumi-timeline-web</string>
+    <string name="package_name">com.bangumi.timeline</string>
+    <string name="custom_url_scheme">com.bangumi.timeline</string>
+</resources>
